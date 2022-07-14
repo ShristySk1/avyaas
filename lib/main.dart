@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'core/navigation/locator.dart';
 import 'core/navigation/navigation.dart';
+import 'features/presentation/widgets/widget_discussion.dart';
 
 void main() async {
   await LocatorInjector.setupLocator();
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AvyaasApptheme.light,
-      home: DiscussionPage(),
+      home: WidgetDiscussion(),
     );
   }
 }
