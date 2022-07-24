@@ -16,11 +16,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? email, phone;
-  final List<String> errors = [];
+  
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  String? email, phone;
+  final List<String> errors = [];
   void addError({required String error}) {
     if (!errors.contains(error))
       setState(() {

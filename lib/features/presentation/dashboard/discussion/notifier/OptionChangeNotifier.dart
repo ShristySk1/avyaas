@@ -44,6 +44,7 @@ class OptionChangeNotifier with ChangeNotifier {
 
   toggleSelection(int i, int j) {
     quesData[i].correctAns = quesData[i].answerList[j].optionNo;
+    quesData[i].showProgress = true;
     notifyListeners();
   }
 }
@@ -57,17 +58,18 @@ class QuesData {
   final String userImage;
   final List<AnswerList> answerList;
   String? correctAns;
+  bool? showProgress;
 
-  QuesData({
-    required this.tagColor,
-    required this.subjectTag,
-    required this.username,
-    required this.date,
-    required this.question,
-    required this.userImage,
-    required this.answerList,
-    this.correctAns,
-  });
+  QuesData(
+      {required this.tagColor,
+      required this.subjectTag,
+      required this.username,
+      required this.date,
+      required this.question,
+      required this.userImage,
+      required this.answerList,
+      this.correctAns,
+      this.showProgress});
 }
 
 class AnswerList {

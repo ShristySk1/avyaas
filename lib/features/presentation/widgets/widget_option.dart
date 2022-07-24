@@ -11,10 +11,12 @@ class WidgetOption extends StatelessWidget {
   double totalPercentage;
   Color color;
   bool isChoosen;
-  
+  bool isShowProgress;
+
   WidgetOption({
     Key? key,
     this.isChoosen = false,
+    this.isShowProgress = false,
     required this.optionNo,
     required this.option,
     required this.totalPercentage,
@@ -72,18 +74,26 @@ class WidgetOption extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                ProgressBar(
-                  max: 100,
-                  current: totalPercentage,
-                  color: color,
-                ),
-                SizedBox(
-                  height: 2,
-                ),
-                Text(
-                  "${totalPercentage} %",
-                  style: AvyaasApptheme.numbersmall,
-                ),
+                isShowProgress
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ProgressBar(
+                            max: 100,
+                            current: totalPercentage,
+                            color: color,
+                          ),
+                          SizedBox(
+                            height: 2,
+                          ),
+                          Text(
+                            "${totalPercentage} %",
+                            style: AvyaasApptheme.numbersmall,
+                          ),
+                        ],
+                      )
+                    : SizedBox()
               ],
             ),
           ),
